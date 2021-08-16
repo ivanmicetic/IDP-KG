@@ -1,3 +1,6 @@
-https://disprot.org/sitemap.xml
-https://mobidb.bio.unipd.it/sitemap.xml
-https://proteinensemble.org/sitemap.xml
+https://disprot.org/sitemap1.xml.gz
+https://disprot.org/sitemap2.xml.gz
+https://mobidb.org/sitemap1.xml.gz
+https://mobidb.org/sitemap2.xml.gz
+https://proteinensemble.org/sitemap1.xml.gz
+https://proteinensemble.org/sitemap2.xml.gz
