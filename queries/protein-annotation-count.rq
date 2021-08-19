@@ -1,0 +1,28 @@
+# Retrieve proteins with mutliple annotations from multiple sources
+
+PREFIX pav: <http://purl.org/pav/>
+PREFIX schema: <https://schema.org/>
+SELECT ?protein (SAMPLE(?proteinName) AS ?name) (COUNT(distinct ?annotation) AS ?annotationCount) (COUNT(distinct ?source) AS ?sourceCount)
+WHERE {
+    {
+        SELECT DISTINCT ?protein ?proteinName
+        WHERE {
+		    GRAPH ?g {
+        		?protein a schema:Protein .
+		        OPTIONAL {?protein schema:name ?proteinName .}
+		    }
+        }
+    }
+    {
+	    SELECT ?annotation ?source ?protein
+    	WHERE {
+        	GRAPH ?g {
+            	?protein schema:hasSequenceAnnotation ?annotation
+	        }
+    	    ?g pav:retrievedFrom ?source .
+	    }
+    }
+}
+GROUP BY ?protein
+HAVING (?sourceCount > 1)
+ORDER BY DESC(?annotationCount)

@@ -1,0 +1,10 @@
+# Retrieve the number of distinct proteins
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT (COUNT(DISTINCT ?s) AS ?Proteins)
+WHERE {
+    GRAPH ?g {
+        ?s a schema:Protein
+    }
+}

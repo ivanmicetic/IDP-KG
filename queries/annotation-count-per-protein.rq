@@ -1,0 +1,15 @@
+# Proteins from more than one source
+# Order results by number of annotations
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT ?protein (COUNT(?g) as ?numSources) (GROUP_CONCAT(?source;SEPARATOR="\n") AS ?sources)
+WHERE {
+    GRAPH ?g {
+        ?protein a schema:Protein .
+    }
+    ?g pav:retrievedFrom ?source .
+}
+GROUP BY ?protein
+HAVING (?numSources > 1)
+ORDER BY DESC (?numSources)
