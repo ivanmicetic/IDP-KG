@@ -24,7 +24,7 @@ WHERE {
         OPTIONAL {?s schema:bioChemInteraction ?bioChemInteraction}
         OPTIONAL {?s schema:bioChemSimilarity ?bioChemSimilarity}
         OPTIONAL {?s schema:hasBioChemEntityPart ?bioChemEntity}
-        OPTIONAL {?s schema:hasBioPloymerSequence ?sequence}
+        OPTIONAL {?s schema:hasBioPolymerSequence ?sequence}
         OPTIONAL {?s schema:hasMolecularFunction ?molFunction}
         OPTIONAL {?s schema:hasRepresentation ?representation}
         OPTIONAL {?s schema:image ?image}
@@ -32,7 +32,8 @@ WHERE {
         OPTIONAL {?s schema:isLocatedInSubcellularLocation ?cellularLocation}
         OPTIONAL {?s schema:isPartOfBioChemEntity ?parentEntity}
         OPTIONAL {?s schema:sameAs ?sameAs}
-        ?g pav:retrievedFrom ?source ;
-            pav:retrievedOn ?date .
     }
+    ?g pav:retrievedFrom ?source ;
+      # pav:retrievedOn ?date ;
+      # pav:createdWith ?bmuse.
 }
