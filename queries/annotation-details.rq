@@ -1,0 +1,16 @@
+# Retrieve sequence annotation range and term term code
+
+PREFIX schema: <https://schema.org/>
+
+SELECT ?s ?annotation ?start ?end ?term
+WHERE {
+    graph ?g {
+        ?s a schema:Protein;
+           schema:hasSequenceAnnotation ?annotation .
+        ?annotation schema:additionalProperty/schema:value ?term;
+            schema:sequenceLocation ?range .
+        ?range schema:rangeStart ?start ;
+               schema:rangeEnd ?end .
+    }
+}
+ORDER BY ?s ?start ?end
