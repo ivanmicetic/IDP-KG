@@ -1,0 +1,4 @@
+<https://bioschemas.org/crawl/v1/disprot/browse/20210813/2> <http://purl.org/pav/retrievedFrom> <https://disprot.org/browse> .
+<https://bioschemas.org/crawl/v1/disprot/browse/20210813/2> <http://purl.org/pav/retrievedOn> "2021-08-13T14:13:46"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://bioschemas.org/crawl/v1/disprot/browse/20210813/2> <http://purl.org/pav/createdWith> <https://github.com/HW-SWeL/BMUSE/releases/tag/0.5.0> .
+<https://disprot.org/browse> <http://purl.org/dc/terms/title> "DisProt" <https://bioschemas.org/crawl/v1/disprot/browse/20210813/2> .
