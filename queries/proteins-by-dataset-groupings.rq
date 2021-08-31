@@ -160,16 +160,96 @@ WHERE {
                 GRAPH ?g2 {
                     ?s a schema:Protein
                 }
+                ?g2 void:inDataset "https://proteinensemble.org/#2021-02-12"
+            }
+        }
+        BIND("DisProt n PED" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?s) AS ?c)
+            WHERE {
+                GRAPH ?g1 {
+                    ?s a schema:Protein
+                }
+                ?g1 void:inDataset <https://mobidb.org/#2020-09>
+                GRAPH ?g2 {
+                    ?s a schema:Protein
+                }
+                ?g2 void:inDataset "https://proteinensemble.org/#2021-02-12"
+            }
+        }
+        BIND("MobiDB n PED" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?s) AS ?c)
+            WHERE {
+                GRAPH ?g1 {
+                    ?s a schema:Protein
+                }
+                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                GRAPH ?g2 {
+                    ?s a schema:Protein
+                }
                 ?g2 void:inDataset <https://mobidb.org/#2020-09>
                 FILTER NOT EXISTS {
-                    GRAPH ?g1 {
+                    GRAPH ?g3 {
                         ?s a schema:Protein
                     }
-                    ?g1 void:inDataset "https://proteinensemble.org/#2021-02-12"
+                    ?g3 void:inDataset "https://proteinensemble.org/#2021-02-12"
                 }
             }
         }
-        BIND("DisProt n MobiDB / PED" AS ?d)
+        BIND("(DisProt n MobiDB) \\ PED" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?s) AS ?c)
+            WHERE {
+                GRAPH ?g1 {
+                    ?s a schema:Protein
+                }
+                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                GRAPH ?g2 {
+                    ?s a schema:Protein
+                }
+                ?g2 void:inDataset "https://proteinensemble.org/#2021-02-12"
+                FILTER NOT EXISTS {
+                    GRAPH ?g3 {
+                        ?s a schema:Protein
+                    }
+                    ?g3 void:inDataset <https://mobidb.org/#2020-09>
+                }
+            }
+        }
+        BIND("(DisProt n PED) \\ MobiDB" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?s) AS ?c)
+            WHERE {
+                GRAPH ?g1 {
+                    ?s a schema:Protein
+                }
+                ?g1 void:inDataset <https://mobidb.org/#2020-09>
+                GRAPH ?g2 {
+                    ?s a schema:Protein
+                }
+                ?g2 void:inDataset "https://proteinensemble.org/#2021-02-12"
+                FILTER NOT EXISTS {
+                    GRAPH ?g3 {
+                        ?s a schema:Protein
+                    }
+                    ?g3 void:inDataset "https://disprot.org/#2020-12"
+                }
+            }
+        }
+        BIND("(MobiDB n PED)\\DisProt" AS ?d)
     }
     BIND (?c AS ?count)
     BIND (?d AS ?description)
