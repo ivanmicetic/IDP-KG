@@ -13,6 +13,18 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
+            }
+        }
+        BIND("Distinct Proteins" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?s) AS ?c)
+            WHERE {
+                GRAPH ?g1 {
+                    ?s a schema:Protein
+                }
                 ?g1 void:inDataset "https://disprot.org/#2020-12"
             }
         }
