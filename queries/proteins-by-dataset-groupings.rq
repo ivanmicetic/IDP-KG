@@ -136,6 +136,66 @@ WHERE {
         {
             SELECT (COUNT(DISTINCT ?s) AS ?c)
             WHERE {
+                {
+                    GRAPH ?g2 {
+                        ?s a schema:Protein
+                    }
+                    ?g2 void:inDataset "https://disprot.org/#2020-12"
+                } UNION {
+                    GRAPH ?g3 {
+                        ?s a schema:Protein
+                    }
+                    ?g3 void:inDataset <https://mobidb.org/#2020-09>
+                }
+            }
+        }
+        BIND("(DisProt U MobiDB)" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?s) AS ?c)
+            WHERE {
+                {
+                    GRAPH ?g2 {
+                        ?s a schema:Protein
+                    }
+                    ?g2 void:inDataset "https://disprot.org/#2020-12"
+                } UNION {
+                    GRAPH ?g3 {
+                        ?s a schema:Protein
+                    }
+                    ?g3 void:inDataset "https://proteinensemble.org/#2021-02-12"
+                }
+            }
+        }
+        BIND("(DisProt U PED)" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?s) AS ?c)
+            WHERE {
+                {
+                    GRAPH ?g2 {
+                        ?s a schema:Protein
+                    }
+                    ?g2 void:inDataset <https://mobidb.org/#2020-09>
+                } UNION {
+                    GRAPH ?g3 {
+                        ?s a schema:Protein
+                    }
+                    ?g3 void:inDataset "https://proteinensemble.org/#2021-02-12"
+                }
+            }
+        }
+        BIND("(MobiDB U PED)" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?s) AS ?c)
+            WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
