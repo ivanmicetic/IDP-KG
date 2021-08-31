@@ -19,6 +19,7 @@ SELECT  ?s
 	(GROUP_CONCAT(DISTINCT ?measurementTechnique;SEPARATOR=',<br/>') AS ?measurementTechniques)
 	(GROUP_CONCAT(DISTINCT ?variableMeasured;SEPARATOR=',<br/>') AS ?variablesMeasured)
 	(GROUP_CONCAT(DISTINCT ?version;SEPARATOR=',<br/>') AS ?versions)
+	(GROUP_CONCAT(DISTINCT ?dateModified;SEPARATOR=',<br/>') AS ?modifiedDates)
 	(GROUP_CONCAT(DISTINCT ?sameAs;SEPARATOR=',<br/>') AS ?equivalences)
 	(GROUP_CONCAT(DISTINCT ?source;SEPARATOR=',<br/>') AS ?sources)
 WHERE {
@@ -40,6 +41,7 @@ WHERE {
 		OPTIONAL {?s schema:variableMeasured ?variableMeasured}
 		OPTIONAL {?s schema:version ?version}
 ## Others
+		OPTIONAL {?s schema:dateModified ?dateModified}
 		OPTIONAL {?s schema:sameAs ?sameAs }
 	}
 	?g pav:retrievedFrom ?source
