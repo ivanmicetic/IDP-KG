@@ -15,7 +15,7 @@ WHERE {
                 }
             }
         }
-        BIND("Distinct Proteins" AS ?d)
+        BIND("Distinct Proteins (Union)" AS ?d)
     }
     UNION
     {
@@ -79,7 +79,7 @@ WHERE {
                 }
             }
         }
-        BIND("DisProt / (MobiDB U PED)" AS ?d)
+        BIND("DisProt \\ (MobiDB U PED)" AS ?d)
     }
     UNION
     {
@@ -104,7 +104,7 @@ WHERE {
                 }
             }
         }
-        BIND("MobiDB / (DisProt U PED)" AS ?d)
+        BIND("MobiDB \\ (DisProt U PED)" AS ?d)
     }
     UNION
     {
@@ -129,7 +129,7 @@ WHERE {
                 }
             }
         }
-        BIND("PED / (DisProt U MobiDB)" AS ?d)
+        BIND("PED \\ (DisProt U MobiDB)" AS ?d)
     }
     UNION
     {
