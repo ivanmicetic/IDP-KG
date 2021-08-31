@@ -45,6 +45,8 @@ WHERE {
 		OPTIONAL {?s schema:dateModified ?dateModified}
 		OPTIONAL {?s schema:encodingFormat ?encodingFormat}
 		OPTIONAL {?s schema:sameAs ?sameAs }
+## Others
+		OPTIONAL {?s schema:datePublished ?datePublished}
 	}
 	?g pav:retrievedFrom ?source
 }
