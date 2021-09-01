@@ -1,0 +1,8 @@
+## Number of Triples
+
+SELECT (COUNT(*) AS ?triples)
+WHERE {
+    GRAPH ?g {
+        ?s ?p ?o
+    }
+}
