@@ -1,0 +1,14 @@
+# Sequence Annotations per Dataset
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT ?dataset (COUNT(DISTINCT ?s) AS ?annotations) 
+WHERE {
+    GRAPH ?g {
+        ?s a schema:SequenceAnnotation
+    }
+    ?g void:inDataset ?dataset
+} 
+GROUP BY ?dataset

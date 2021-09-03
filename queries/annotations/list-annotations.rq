@@ -1,0 +1,26 @@
+# List the annotations and the source from which the annotation has come.
+
+PREFIX pav: <http://purl.org/pav/>
+PREFIX schema: <https://schema.org/>
+SELECT ?protein ?proteinName ?annotation ?source
+WHERE {
+    {
+        SELECT DISTINCT ?protein ?proteinName
+        WHERE {
+		    GRAPH ?g {
+        		?protein a schema:Protein .
+		        OPTIONAL {?protein schema:name ?proteinName .}
+		    }
+        }
+    }
+    {
+        SELECT ?annotation ?source ?protein
+        WHERE {
+            GRAPH ?g {
+                ?protein schema:hasSequenceAnnotation ?annotation
+            }
+            ?g pav:retrievedFrom ?source .
+        }
+    }
+} 
+ORDER BY ?protein ?annotation

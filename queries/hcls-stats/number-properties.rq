@@ -1,0 +1,8 @@
+#Number of Unique Properties
+
+SELECT (COUNT(DISTINCT ?p) AS ?properties) 
+WHERE { 
+    GRAPH ?g { 
+        ?s ?p ?o 
+    }
+}

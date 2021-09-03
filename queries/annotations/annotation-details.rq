@@ -1,8 +1,9 @@
-# Retrieve sequence annotation range and term term code
+# Sequence Annotation Information
+# Return information known about each sequence annotation.
 
 PREFIX schema: <https://schema.org/>
 
-SELECT ?s ?annotation ?start ?end ?term
+SELECT ?s ?annotation ?start ?end ?termCode ?termName ?pubmedID
 WHERE {
     graph ?g {
         ?s a schema:Protein;
@@ -11,6 +12,9 @@ WHERE {
             schema:sequenceLocation ?range .
         ?range schema:rangeStart ?start ;
                schema:rangeEnd ?end .
+        ?term schema:termCode ?termCode ;
+            schema:name ?termName .
+        OPTIONAL { ?annotation schema:subjectOf ?pubmedID }
     }
-}
+}    
 ORDER BY ?s ?start ?end

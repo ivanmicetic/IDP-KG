@@ -1,0 +1,18 @@
+# Proteins from Multiple Datasets
+# A protein comes from multiple sources if the triple is found in multiple named graphs. The number 
+# of named graphs containing the triple indicates the number of sources containing the triple.
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT ?protein (COUNT(?g) as ?numDatasets) (GROUP_CONCAT(?dataset;SEPARATOR=", ") AS ?datasets)
+WHERE {
+    GRAPH ?g {
+        ?protein a schema:Protein .
+    }
+    ?g void:inDataset ?dataset .
+}
+GROUP BY ?protein
+HAVING (COUNT(*) > 1)
+ORDER BY ?numDatasets

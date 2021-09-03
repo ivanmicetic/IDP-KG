@@ -1,0 +1,14 @@
+#Number of Unique Subject Types Linked to Unique Object Types
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT (COUNT(DISTINCT ?s) AS ?scount) ?stype ?p ?otype (COUNT(DISTINCT ?o) AS ?ocount)
+WHERE {
+    GRAPH ?g {
+        ?s ?p ?o .
+        ?s a ?stype .
+        ?o a ?otype .
+    }
+} 
+GROUP BY ?p ?stype ?otype
+ORDER BY ?p

@@ -1,0 +1,12 @@
+#Properties and their Occurence
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT ?p (COUNT(?p) AS ?triples) 
+WHERE {
+    GRAPH ?g {
+        ?s ?p ?o
+    }
+} 
+GROUP BY ?p
+ORDER BY ?p

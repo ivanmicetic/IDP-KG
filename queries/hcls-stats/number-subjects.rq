@@ -1,0 +1,8 @@
+## Number of Unique Subjects
+
+SELECT (COUNT(DISTINCT ?s) AS ?subjects) 
+WHERE { 
+    GRAPH ?g { 
+        ?s ?p ?o
+    }
+}

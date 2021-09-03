@@ -1,0 +1,13 @@
+#Property, number of unique typed subjects, and triples
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT (COUNT(DISTINCT ?s) AS ?scount) ?stype ?p (COUNT(?p) AS ?triples) 
+WHERE {
+    GRAPH ?g {
+        ?s ?p ?o .
+        ?s a ?stype 
+    }
+} 
+GROUP BY ?p ?stype
+ORDER BY ?stype ?p

@@ -1,0 +1,18 @@
+# Proteins from Multiple Pages
+# A protein comes from multiple pages (sources) if the triple is found
+# in multiple named graphs. The number of named graphs containing the triple 
+# indicates the number of sources containing the triple.
+# Note: a protein can come from multiple pages within the same dataset.
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT ?protein (COUNT(?g) as ?numSources) (GROUP_CONCAT(?source;SEPARATOR=", ") AS ?sources)
+WHERE {
+    GRAPH ?g {
+        ?protein a schema:Protein .
+    }
+    ?g pav:retrievedFrom ?source .
+}
+GROUP BY ?protein
+HAVING (COUNT(*) > 1)
+ORDER BY ?numSources

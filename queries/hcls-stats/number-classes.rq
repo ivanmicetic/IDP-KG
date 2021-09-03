@@ -1,0 +1,8 @@
+#Number of Unique Classes
+
+SELECT (COUNT(DISTINCT ?o) AS ?classes) 
+WHERE { 
+    GRAPH ?g { 
+        ?s a ?o 
+    }
+}

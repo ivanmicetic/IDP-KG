@@ -1,0 +1,14 @@
+# Number of annotations per article
+
+PREFIX schema: <https://schema.org/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT ?pubmedID (COUNT (?pubmedID) AS ?numAnnotations)
+WHERE {
+    graph ?g {
+        ?annotation a schema:SequenceAnnotation;
+            schema:subjectOf ?pubmedID
+    }
+}    
+GROUP BY ?pubmedID
+ORDER BY DESC(?numAnnotations)

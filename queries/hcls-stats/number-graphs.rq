@@ -1,0 +1,7 @@
+#Number of Graphs
+
+SELECT (COUNT(DISTINCT ?g) AS ?graphs) 
+WHERE { 
+  GRAPH ?g 
+    { ?s ?p ?o }
+}

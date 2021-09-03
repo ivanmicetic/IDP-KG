@@ -1,0 +1,8 @@
+#Number of Typed Entities
+
+SELECT (COUNT(DISTINCT ?s) AS ?entities) 
+WHERE { 
+    GRAPH ?g { 
+        ?s a [] 
+    }
+}

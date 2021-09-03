@@ -1,0 +1,16 @@
+# Number of annotations by term code
+# For each term code, return the number of annotations using that code.
+
+PREFIX schema: <https://schema.org/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT ?termCode ?termName (COUNT (?annotation) AS ?numAnnotations)
+WHERE {
+    graph ?g {
+        ?annotation schema:additionalProperty/schema:value ?term .
+        ?term schema:termCode ?termCode ;
+            schema:name ?termName .
+    }
+}    
+GROUP BY ?termCode ?termName
+ORDER BY DESC(?numAnnotations)

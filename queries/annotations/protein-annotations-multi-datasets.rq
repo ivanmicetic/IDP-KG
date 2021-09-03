@@ -1,9 +1,10 @@
-# Retrieve proteins with mutliple annotations from multiple sources
+# Proteins with Annotations in Multiple Datasets
 
 PREFIX pav: <http://purl.org/pav/>
 PREFIX schema: <https://schema.org/>
-SELECT ?protein (SAMPLE(?proteinName) AS ?name) (COUNT(distinct ?annotation) AS ?annotationCount) 
-       (COUNT(distinct ?source) AS ?sourceCount)
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT ?protein (SAMPLE(?proteinName) AS ?name) (COUNT(distinct ?annotation) AS ?annotationCount) (COUNT(distinct ?dataset) AS ?datasets)
 WHERE {
     {
         SELECT DISTINCT ?protein ?proteinName
@@ -15,15 +16,15 @@ WHERE {
         }
     }
     {
-	    SELECT ?annotation ?source ?protein
+	    SELECT ?annotation ?dataset ?protein
     	WHERE {
         	GRAPH ?g {
             	?protein schema:hasSequenceAnnotation ?annotation
 	        }
-    	    ?g pav:retrievedFrom ?source .
+    	    ?g void:inDataset ?dataset .
 	    }
     }
 } 
 GROUP BY ?protein
-HAVING (COUNT(distinct ?source) > 1)
+HAVING (COUNT(distinct ?dataset) > 1)
 ORDER BY DESC(?annotationCount)

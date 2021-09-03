@@ -1,0 +1,9 @@
+#Number of Unique Objects
+
+SELECT (COUNT(DISTINCT ?o) AS ?objects) 
+WHERE { 
+    GRAPH ?g { 
+        ?s ?p ?o
+    }
+    FILTER(!isLiteral(?o))
+}

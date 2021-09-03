@@ -1,0 +1,13 @@
+#Triples and Number of Unique Literals Related to a Property
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT ?p (COUNT(?p) AS ?triples) (COUNT(DISTINCT ?o) AS ?literals)
+WHERE {
+    GRAPH ?g {
+        ?s ?p ?o
+    }
+    FILTER (isLiteral(?o))
+} 
+GROUP BY ?p
+ORDER BY ?p

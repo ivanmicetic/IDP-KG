@@ -5,15 +5,16 @@
 
 PREFIX schema: <https://schema.org/>
 PREFIX pav: <http://purl.org/pav/>
-SELECT  ?s
-	(GROUP_CONCAT(DISTINCT ?name;SEPARATOR=',<br/>') AS ?names)
-    (GROUP_CONCAT(DISTINCT ?description;SEPARATOR=',<br/>') AS ?descriptions)
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT  ?s ?name ?description
     (GROUP_CONCAT(DISTINCT ?identifier;SEPARATOR=',<br/>') AS ?identifiers)
-    (GROUP_CONCAT(DISTINCT ?associatedDisease;SEPARATOR=',<br/>') AS ?diseases)
-    (GROUP_CONCAT(DISTINCT ?encodedBy;SEPARATOR=',<br/>') AS ?genes)
-    (GROUP_CONCAT(DISTINCT ?taxonomicRange;SEPARATOR=',<br/>') AS ?taxons)
-    (GROUP_CONCAT(DISTINCT ?sameAs;SEPARATOR=',<br/>') AS ?equivalences)
+    ?associatedDisease
+    ?encodedBy
+    ?taxonomicRange
+    (GROUP_CONCAT(DISTINCT ?sameAs;SEPARATOR=',<br/>') AS ?sameAs)
     (GROUP_CONCAT(DISTINCT ?source;SEPARATOR=',<br/>') AS ?sources)
+    (GROUP_CONCAT(DISTINCT ?dataset;SEPARATOR=',<br/>') AS ?datasets)
 WHERE {
     GRAPH ?g {
 # Bioschemas Minimal Properties
@@ -29,5 +30,6 @@ WHERE {
         OPTIONAL {?s schema:sameAs ?sameAs }
     }
     ?g pav:retrievedFrom ?source
+    OPTIONAL {?g void:inDataset ?dataset}
 }
 GROUP BY ?s
