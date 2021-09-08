@@ -25,7 +25,7 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                ?g1 void:inDataset "https://disprot.org/#2021-08"
             }
         }
         BIND("DisProt Proteins" AS ?d)
@@ -38,7 +38,7 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset <https://mobidb.org/#2020-09>
+                ?g1 void:inDataset "https://mobidb.org/#2020-09"
             }
         }
         BIND("MobiDB Proteins" AS ?d)
@@ -64,12 +64,12 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                ?g1 void:inDataset "https://disprot.org/#2021-08"
                 FILTER NOT EXISTS {
                     {GRAPH ?g2 {
                         ?s a schema:Protein
                     }
-                    ?g2 void:inDataset <https://mobidb.org/#2020-09>
+                    ?g2 void:inDataset "https://mobidb.org/#2020-09"
                     } UNION
                     {GRAPH ?g3 {
                         ?s a schema:Protein
@@ -89,12 +89,12 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset <https://mobidb.org/#2020-09>
+                ?g1 void:inDataset "https://mobidb.org/#2020-09"
                 FILTER NOT EXISTS {
                     {GRAPH ?g2 {
                         ?s a schema:Protein
                     }
-                    ?g2 void:inDataset "https://disprot.org/#2020-12"
+                    ?g2 void:inDataset "https://disprot.org/#2021-08"
                     } UNION
                     {GRAPH ?g3 {
                         ?s a schema:Protein
@@ -119,12 +119,12 @@ WHERE {
                     {GRAPH ?g2 {
                         ?s a schema:Protein
                     }
-                    ?g2 void:inDataset "https://disprot.org/#2020-12"
+                    ?g2 void:inDataset "https://disprot.org/#2021-08"
                     } UNION
                     {GRAPH ?g3 {
                         ?s a schema:Protein
                     }
-                    ?g3 void:inDataset <https://mobidb.org/#2020-09>
+                    ?g3 void:inDataset "https://mobidb.org/#2020-09"
                     }
                 }
             }
@@ -140,12 +140,12 @@ WHERE {
                     GRAPH ?g2 {
                         ?s a schema:Protein
                     }
-                    ?g2 void:inDataset "https://disprot.org/#2020-12"
+                    ?g2 void:inDataset "https://disprot.org/#2021-08"
                 } UNION {
                     GRAPH ?g3 {
                         ?s a schema:Protein
                     }
-                    ?g3 void:inDataset <https://mobidb.org/#2020-09>
+                    ?g3 void:inDataset "https://mobidb.org/#2020-09"
                 }
             }
         }
@@ -160,7 +160,7 @@ WHERE {
                     GRAPH ?g2 {
                         ?s a schema:Protein
                     }
-                    ?g2 void:inDataset "https://disprot.org/#2020-12"
+                    ?g2 void:inDataset "https://disprot.org/#2021-08"
                 } UNION {
                     GRAPH ?g3 {
                         ?s a schema:Protein
@@ -180,7 +180,7 @@ WHERE {
                     GRAPH ?g2 {
                         ?s a schema:Protein
                     }
-                    ?g2 void:inDataset <https://mobidb.org/#2020-09>
+                    ?g2 void:inDataset "https://mobidb.org/#2020-09"
                 } UNION {
                     GRAPH ?g3 {
                         ?s a schema:Protein
@@ -199,11 +199,11 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                ?g1 void:inDataset "https://disprot.org/#2021-08"
                 GRAPH ?g2 {
                     ?s a schema:Protein
                 }
-                ?g2 void:inDataset <https://mobidb.org/#2020-09>
+                ?g2 void:inDataset "https://mobidb.org/#2020-09"
             }
         }
         BIND("DisProt n MobiDB" AS ?d)
@@ -216,7 +216,7 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                ?g1 void:inDataset "https://disprot.org/#2021-08"
                 GRAPH ?g2 {
                     ?s a schema:Protein
                 }
@@ -233,7 +233,7 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset <https://mobidb.org/#2020-09>
+                ?g1 void:inDataset "https://mobidb.org/#2020-09"
                 GRAPH ?g2 {
                     ?s a schema:Protein
                 }
@@ -250,11 +250,11 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                ?g1 void:inDataset "https://disprot.org/#2021-08"
                 GRAPH ?g2 {
                     ?s a schema:Protein
                 }
-                ?g2 void:inDataset <https://mobidb.org/#2020-09>
+                ?g2 void:inDataset "https://mobidb.org/#2020-09"
                 FILTER NOT EXISTS {
                     GRAPH ?g3 {
                         ?s a schema:Protein
@@ -273,7 +273,7 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                ?g1 void:inDataset "https://disprot.org/#2021-08"
                 GRAPH ?g2 {
                     ?s a schema:Protein
                 }
@@ -282,7 +282,7 @@ WHERE {
                     GRAPH ?g3 {
                         ?s a schema:Protein
                     }
-                    ?g3 void:inDataset <https://mobidb.org/#2020-09>
+                    ?g3 void:inDataset "https://mobidb.org/#2020-09"
                 }
             }
         }
@@ -296,7 +296,7 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset <https://mobidb.org/#2020-09>
+                ?g1 void:inDataset "https://mobidb.org/#2020-09"
                 GRAPH ?g2 {
                     ?s a schema:Protein
                 }
@@ -305,7 +305,7 @@ WHERE {
                     GRAPH ?g3 {
                         ?s a schema:Protein
                     }
-                    ?g3 void:inDataset "https://disprot.org/#2020-12"
+                    ?g3 void:inDataset "https://disprot.org/#2021-08"
                 }
             }
         }
@@ -319,11 +319,11 @@ WHERE {
                 GRAPH ?g1 {
                     ?s a schema:Protein
                 }
-                ?g1 void:inDataset "https://disprot.org/#2020-12"
+                ?g1 void:inDataset "https://disprot.org/#2021-08"
                 GRAPH ?g2 {
                     ?s a schema:Protein
                 }
-                ?g2 void:inDataset <https://mobidb.org/#2020-09>
+                ?g2 void:inDataset "https://mobidb.org/#2020-09"
                 GRAPH ?g3 {
                     ?s a schema:Protein
                 }
