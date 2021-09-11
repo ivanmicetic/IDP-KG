@@ -8,6 +8,78 @@ SELECT ?description ?count
 WHERE {
     {
         {
+            SELECT (COUNT(DISTINCT ?g1) AS ?c)
+            WHERE {
+                ?g1 pav:retrievedFrom ?s
+                FILTER (strStarts(str(?s), "https://disprot.org"))
+            }
+        }
+        BIND("DisProt Pages" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?g1) AS ?c)
+            WHERE {
+                ?g1 pav:retrievedFrom ?s
+                FILTER (strStarts(str(?s), "https://mobidb.org"))
+            }
+        }
+        BIND("MobiDB Pages" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?g1) AS ?c)
+            WHERE {
+                ?g1 pav:retrievedFrom ?s
+                FILTER (strStarts(str(?s), "https://proteinensemble.org"))
+            }
+        }
+        BIND("PED Pages" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?g1) AS ?c)
+            WHERE {
+                GRAPH ?g1 {
+                    ?s a schema:Protein
+                }
+                ?g1 void:inDataset "https://disprot.org/#2021-08"
+            }
+        }
+        BIND("DisProt Protein Pages" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?g1) AS ?c)
+            WHERE {
+                GRAPH ?g1 {
+                    ?s a schema:Protein
+                }
+                ?g1 void:inDataset "https://mobidb.org/#2020-09"
+            }
+        }
+        BIND("MobiDB Protein Pages" AS ?d)
+    }
+    UNION
+    {
+        {
+            SELECT (COUNT(DISTINCT ?g1) AS ?c)
+            WHERE {
+                GRAPH ?g1 {
+                    ?s a schema:Protein
+                }
+                ?g1 void:inDataset "https://proteinensemble.org/#2021-02-12"
+            }
+        }
+        BIND("PED Protein Pages" AS ?d)
+    }
+    UNION
+    {
+        {
             SELECT (COUNT(DISTINCT ?s) AS ?c)
             WHERE {
                 GRAPH ?g1 {
