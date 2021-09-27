@@ -7,7 +7,7 @@ The Intrinsically Disordered Protein Knowledge Graph (IDP-KG) supports the disco
 
 ## Funding and Acknowledgements
 
-![ELIXIR Logo](https://elixir-europe.org/system/files/white-orange-logo.png)
+<img style="align:right" src="https://bioschemas.org/images/Elixir-logo.png" alt="ELIXIR Logo">
 
 This work was funded as part of the [ELIXIR Interoperability Platform](https://www.elixir-europe.org/services/interoperability/) Strategic Implementation Study [_"Bioschemas Markup to Support ELIXIR Communities"_](https://elixir-europe.org/about-us/commissioned-services/exploiting-bioschemas-markup-support-elixir-communities).
 
