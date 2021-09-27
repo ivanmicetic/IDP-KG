@@ -4,7 +4,7 @@ PREFIX pav: <http://purl.org/pav/>
 PREFIX schema: <https://schema.org/>
 PREFIX void: <http://rdfs.org/ns/void#>
 
-SELECT ?protein (SAMPLE(?proteinName) AS ?name) (COUNT(distinct ?annotation) AS ?annotationCount) (COUNT(distinct ?dataset) AS ?datasets)
+SELECT ?protein (GROUP_CONCAT (DISTINCT ?proteinName;SEPARATOR=', ') AS ?names) (COUNT(distinct ?annotation) AS ?annotationCount) (COUNT(distinct ?dataset) AS ?datasets)
 WHERE {
     {
         SELECT DISTINCT ?protein ?proteinName
@@ -24,7 +24,7 @@ WHERE {
     	    ?g void:inDataset ?dataset .
 	    }
     }
-} 
+}
 GROUP BY ?protein
 HAVING (COUNT(distinct ?dataset) > 1)
 ORDER BY DESC(?annotationCount)

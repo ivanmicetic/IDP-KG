@@ -7,25 +7,27 @@ PREFIX schema: <https://schema.org/>
 PREFIX pav: <http://purl.org/pav/>
 PREFIX void: <http://rdfs.org/ns/void#>
 
-SELECT  ?s ?name ?description
+SELECT  ?s
+    (GROUP_CONCAT(DISTINCT ?name;SEPARATOR=',<br/>') AS ?names)
+    (GROUP_CONCAT(DISTINCT ?description;SEPARATOR=',<br/>') AS ?descriptions)
     (GROUP_CONCAT(DISTINCT ?identifier;SEPARATOR=',<br/>') AS ?identifiers)
-    ?associatedDisease
+    (GROUP_CONCAT(DISTINCT ?associatedDisease;SEPARATOR=',<br/>') AS ?diseases)
     (GROUP_CONCAT(DISTINCT ?annotation;SEPARATOR=',<br/>') AS ?annotations)
-    ?encodedBy
-    ?taxonomicRange
-    ?url
-    ?alternateName
-    ?bioChemInteraction
-    ?bioChemSimilarity
-    ?bioChemEntity
+    (GROUP_CONCAT(DISTINCT ?encodedBy;SEPARATOR=',<br/>') AS ?genes)
+    (GROUP_CONCAT(DISTINCT ?taxonomicRange;SEPARATOR=',<br/>') AS ?taxons)
+    (GROUP_CONCAT(DISTINCT ?url;SEPARATOR=',<br/>') AS ?urls)
+    (GROUP_CONCAT(DISTINCT ?alternateName;SEPARATOR=',<br/>') AS ?altNames)
+    (GROUP_CONCAT(DISTINCT ?bioChemInteraction;SEPARATOR=',<br/>') AS ?interactions)
+    (GROUP_CONCAT(DISTINCT ?bioChemSimilarity;SEPARATOR=',<br/>') AS ?similities)
+    (GROUP_CONCAT(DISTINCT ?bioChemEntity;SEPARATOR=',<br/>') AS ?entities)
     (GROUP_CONCAT(DISTINCT ?sequence;SEPARATOR=',<br/>') AS ?sequences)
-    ?molFunction
-    ?representation
-    ?image
-    ?process
-    ?cellularLocation
-    ?parentEntity
-    (GROUP_CONCAT(DISTINCT ?sameAs;SEPARATOR=',<br/>') AS ?sameAs)
+    (GROUP_CONCAT(DISTINCT ?molFunction;SEPARATOR=',<br/>') AS ?functions)
+    (GROUP_CONCAT(DISTINCT ?representation;SEPARATOR=',<br/>') AS ?representations)
+    (GROUP_CONCAT(DISTINCT ?image;SEPARATOR=',<br/>') AS ?images)
+    (GROUP_CONCAT(DISTINCT ?process;SEPARATOR=',<br/>') AS ?processes)
+    (GROUP_CONCAT(DISTINCT ?cellularLocation;SEPARATOR=',<br/>') AS ?locations)
+    (GROUP_CONCAT(DISTINCT ?parentEntity;SEPARATOR=',<br/>') AS ?parents)
+    (GROUP_CONCAT(DISTINCT ?sameAs;SEPARATOR=',<br/>') AS ?equivalences)
     (GROUP_CONCAT(DISTINCT ?source;SEPARATOR=',<br/>') AS ?sources)
     (GROUP_CONCAT(DISTINCT ?dataset;SEPARATOR=',<br/>') AS ?datasets)
 WHERE {
@@ -37,7 +39,7 @@ WHERE {
 ## Bioschemas Recommended properties
         OPTIONAL {?s schema:associatedDisease ?associatedDisease}
         OPTIONAL {?s schema:description ?description}
-        #OPTIONAL 
+        #OPTIONAL
         {?s schema:hasSequenceAnnotation ?annotation }
         OPTIONAL {?s schema:isEncodedByBioChemEntity ?encodedBy}
         OPTIONAL {?s schema:taxonomicRange ?taxonomicRange }
