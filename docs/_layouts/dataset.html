@@ -17,6 +17,13 @@ layout: default
       {% endfor %}
     </ul>
   </li>
+  <li><strong>Derived from:</strong>
+    <ul>
+      {% for dataset in page.bioschemas.isBasedOn %}
+      <li><a href="{{dataset.url}}">{{dataset.name}}</a></li>
+      {% endfor %}
+    </ul>
+  </li>
 </ul>
 
 
