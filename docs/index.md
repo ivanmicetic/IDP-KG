@@ -9,7 +9,7 @@ The Intrinsically Disordered Protein Knowledge Graph (IDP-KG) supports the disco
 
 The following versions of the IDP-KG are available:
 - [IDP-KG_2021-09-28](versions/idp-kg_2021-09-28)
-- [IDP-KG_2021-09-07](versions/idp-kg_2021-09-28)
+- [IDP-KG_2021-09-07](versions/idp-kg_2021-09-07)
 
 ## Funding and Acknowledgements
 
