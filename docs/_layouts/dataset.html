@@ -3,22 +3,23 @@ layout: default
 ---
 
 <h1>{{ page.bioschemas.name }}<br/>Version: {{ page.bioschemas.version}}</h1>
+<blockquote>
+  {{ page.bioschemas.description }}
+</blockquote>
 <ul>
   <li><strong>License:</strong> <a href="{{ page.bioschemas.license }}">CC0</a></li>
   {% assign distribution = page.bioschemas.distribution.first %}
   <li><strong>Download:</strong> <a href="{{ distribution.contentURL }}">{{ distribution.encodingFormat }}</a></li>
+  <li><strong>Creators:</strong>
+    <ul>
+      {% for creator in page.bioschemas.creator %}
+      <li><a href="{{creator.url}}">{{creator.name}}</a></li>
+      {% endfor %}
+    </ul>
+  </li>
 </ul>
 
-<blockquote>
-  {{ page.bioschemas.description }}
-</blockquote>
 
-<p><strong>Creators:</strong> </p>
-<ul>
-  {% for creator in page.bioschemas.creator %}
-    <li><a href="{{creator.url}}">{{creator.name}}</a></li>
-  {% endfor %}
-</ul>
 
 <!-- Embed Bioschemas Markup  -->
 {% if page.bioschemas %}
