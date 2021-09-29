@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<h1>{{ page.bioschemas.name }}</h1>
+<blockquote>
+  {{ page.bioschemas.description }}
+</blockquote>
+
+<!-- Embed Bioschemas Markup  -->
+{% if page.bioschemas %}
+  <script type="application/ld+json">
+     {{ page.bioschemas | jsonify }}
+  </script>
+{% endif %}
