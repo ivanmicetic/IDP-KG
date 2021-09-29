@@ -5,7 +5,8 @@ layout: default
 <h1>{{ page.bioschemas.name }}<br/>Version: {{ page.bioschemas.version}}</h1>
 <ul>
   <li><strong>License:</strong> <a href="{{ page.bioschemas.license }}">CC0</a></li>
-  <li><strong>Download:</strong> <a href="{{ page.bioschemas.distribution.contentURL }}">{{ page.bioschemas.distribution.encodingFormat }}</li>
+  {% assign distribution = page.bioschemas.distribution.first %}
+  <li><strong>Download:</strong> <a href="{{ page.bioschemas.distribution.contentURL }}">{{ distribution.encodingFormat }}</li>
 </ul>
 
 <blockquote>
