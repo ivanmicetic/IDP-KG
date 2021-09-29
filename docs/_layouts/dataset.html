@@ -8,6 +8,13 @@ layout: default
   {{ page.bioschemas.description }}
 </blockquote>
 
+<p><strong>Creators:</strong> </p>
+<ul>
+  {% for creator in page.bioschemas.creator %}
+    <li><a href="{{creator.url}}">{{creator.name}}</a></li>
+  {% endfor %}
+</ul>
+
 <!-- Embed Bioschemas Markup  -->
 {% if page.bioschemas %}
   <script type="application/ld+json">
