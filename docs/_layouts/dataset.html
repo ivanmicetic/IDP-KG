@@ -1,7 +1,13 @@
 ---
 layout: default
 ---
-
+<link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css' | relative_url }}">
+<link rel="stylesheet" href="{{ 'assets/css/font-awesome.min.css' | relative_url }}">
+<style type="text/css">
+  .basic td {
+    text-align: right !important;
+  }
+</style>
 <h1>{{ page.bioschemas.name }}<br/>Version: {{ page.bioschemas.version}}</h1>
 <blockquote>
   {{ page.bioschemas.description }}
@@ -28,21 +34,80 @@ layout: default
 
 <h2>Statistics about {{ page.bioschemas.name }}</h2>
 <h3>Basic Metrics</h3>
-<table>
-  <thead>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Triples</td>
-      <td>{{page.hcls.triples}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive-sm">
+  <table class="table table-hover basic" style="border-style: hidden;">
+    <tbody>
+      <tr>
+        <th>Triples</th>
+        <td class="numbers">{{page.hcls.triples}}</td>
+      </tr>
+      <tr>
+        <th>Distinct Entities</th>
+        <td class="numbers">{{page.hcls.entities}}</td>
+      </tr>
+      <tr>
+        <th>Distinct Subjects</th>
+        <td class="numbers">{{page.hcls.subjects}}</td>
+      </tr>
+      <tr>
+        <th>Distinct Properties</th>
+        <td class="numbers">{{page.hcls.properties}}</td>
+      </tr>
+      <tr>
+        <th>Distinct Objects</th>
+        <td class="numbers">{{page.hcls.objects}}</td>
+      </tr>
+      <tr>
+        <th>Distinct Literals</th>
+        <td class="numbers">{{page.hcls.literals}}</td>
+      </tr>
+      <tr>
+        <th>Distinct Classes</th>
+        <td class="numbers">{{page.hcls.classes}}</td>
+      </tr>
+      <tr>
+        <th>Distinct Graphs</th>
+        <td class="numbers">{{page.hcls.graphs}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-
+<h3>Types</h3>
+<div class="table-responsive-sm">
+  <table class="table table-hover" style="border-style: hidden;">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th class="text-right">Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for type in page.hcls.types %}
+      <tr>
+        <td class="text-left"><a href="{{type.class}}">{{type.class}}</a></td>
+        <td class="numbers text-right">{{type.count}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 <!-- Embed Bioschemas Markup  -->
 {% if page.bioschemas %}
   <script type="application/ld+json">
      {{ page.bioschemas | jsonify }}
   </script>
 {% endif %}
+
+<script src="{{ 'assets/js/jquery-1.11.1.min.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/bootstrap.min.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/popper.min.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/fontawesome-all.js' | relative_url }}"></script>
+
+<script type="text/javascript">
+  let numbers = document.getElementsByClassName('numbers');
+  for(num of numbers)
+  {
+    num.innerHTML = num.innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+</script>

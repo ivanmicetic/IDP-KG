@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<h1>{{ page.bioschemas.name }}<br/>Version: {{ page.bioschemas.version}}</h1>
+<blockquote>
+  {{ page.bioschemas.description }}
+</blockquote>
+<ul>
+  <li><strong>License:</strong> <a href="{{ page.bioschemas.license }}">CC0</a></li>
+  {% assign distribution = page.bioschemas.distribution.first %}
+  <li><strong>Download:</strong> <a href="{{ distribution.contentURL }}">{{ distribution.encodingFormat }}</a></li>
+  <li><strong>Creators:</strong>
+    <ul>
+      {% for creator in page.bioschemas.creator %}
+      <li><a href="{{creator.url}}">{{creator.name}}</a></li>
+      {% endfor %}
+    </ul>
+  </li>
+  <li><strong>Derived from:</strong>
+    <ul>
+      {% for dataset in page.bioschemas.isBasedOn %}
+      <li><a href="{{dataset.url}}">{{dataset.name}}</a></li>
+      {% endfor %}
+    </ul>
+  </li>
+</ul>
+
+<h2>Statistics about {{ page.bioschemas.name }}</h2>
+<h3>Basic Metrics</h3>
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Triples</td>
+      <td>{{page.hcls.triples}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Embed Bioschemas Markup  -->
+{% if page.bioschemas %}
+  <script type="application/ld+json">
+     {{ page.bioschemas | jsonify }}
+  </script>
+{% endif %}

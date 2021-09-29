@@ -8,11 +8,11 @@ bioschemas:
   - "@type": CreativeWork
     "@id": "https://bioschemas.org/profiles/Dataset/0.4-DRAFT"
   "description": "Knowledge graph about Intrinsically Disordered Proteins generated from Bioschemas markup embedded within DisProt, MobiDB, and ProteinEnsemble."
-  "identifier": "https://alasdairgray.github.io/IDP-KG/versions/idp-kg_2021-09-07"
+  "identifier": "https://alasdairgray.github.io/IDP-KG/versions/idp-kg_2021-09-28"
   "keywords": "IDP, Protein"
   "license": "https://creativecommons.org/share-your-work/public-domain/cc0/"
   "name": "Intrinsically Disordered Proteins Knowledge Graph (IDP-KG)"
-  "url": "https://alasdairgray.github.io/IDP-KG/versions/idp-kg_2021-09-07"
+  "url": "https://alasdairgray.github.io/IDP-KG/versions/idp-kg_2021-09-28"
   "creator":
   - "@type": Person
     name: "Alasdair Gray"
@@ -36,9 +36,9 @@ bioschemas:
     url: https://orcid.org/0000-0001-9224-9820
   "distribution":
   - "@type": DataDownload
-    "name": "IDP-KG_2021-09-07"
+    "name": "IDP-KG_2021-09-28"
     "encodingFormat": "application/n-quads"
-    "contentURL": https://github.com/AlasdairGray/IDP-KG/raw/3da018201aed565dee2d010172886cb2e7af5d96/notebooks/IDPKG-Full.nq
+    "contentURL": https://github.com/AlasdairGray/IDP-KG/raw/04f501425ee658dbe9c46cfc5cda949b2fa1189b/notebooks/IDPKG-Full.nq
   "isBasedOn":
   - "@type": Dataset
     "@id": https://disprot.org/#2021-08
@@ -52,31 +52,10 @@ bioschemas:
     "@id": https://proteinensemble.org/#2020_10
     "name": "Protein Ensemble"
     "url": https://proteinensemble.org/#2020_10
-  "version": "2021-09-07"
+  "version": "2021-09-28"
 hcls:
-  triples: 279196
-  entities: 58799
-  subjects: 63109
-  properties: 34
-  objects: 67495
-  classes: 8
-  literals: 18200
-  graphs: 4311
+  triples: 278572
   types:
-  - class: https://schema.org/DataCatalog
-    count: 2
-  - class: https://schema.org/Dataset
-    count: 2
-  - class: https://schema.org/DefinedTerm
-    count: 4286
-  - class: https://schema.org/PropertyValue
-    count: 17631
-  - class: https://schema.org/Protein
-    count: 2718
-  - class: https://schema.org/ScholarlyArticle
-    count: 2578
-  - class: https://schema.org/SequenceAnnotation
-    count: 15791
-  - class: https://schema.org/SequenceRange
-    count: 15791
+  - Dataset: 2
+    DataCatalog: 2
 ---
