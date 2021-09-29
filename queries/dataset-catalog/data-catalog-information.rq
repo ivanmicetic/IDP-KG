@@ -1,7 +1,7 @@
-# Query to retrieve protein data
-# Defensive query: assumes that data does not conform to Protein profile
-# Retrieve all properties that are mentioned in the Protein Profile
-# Proteins are grouped by their IRI, with multiple values possible
+# Query to retrieve DataCatalog data
+# Defensive query: assumes that data does not conform to DataCatalog profile
+# Retrieve all properties that are mentioned in the DataCatalog Profile
+# DataCatalogs are grouped by their IRI, with multiple values possible but not expected
 
 PREFIX schema: <https://schema.org/>
 PREFIX pav: <http://purl.org/pav/>
