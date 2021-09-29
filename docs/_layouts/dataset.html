@@ -3,7 +3,11 @@ layout: default
 ---
 
 <h1>{{ page.bioschemas.name }}<br/>Version: {{ page.bioschemas.version}}</h1>
-<p><strong>License:</strong> <a href="{{ page.bioschemas.license }}">CC0</a></p>
+<ul>
+  <li><strong>License:</strong> <a href="{{ page.bioschemas.license }}">CC0</a></li>
+  <li><strong>Download:</strong> <a href="{{ page.bioschemas.distribution.contentURL }}">{{ page.bioschemas.distribution.encodingFormat }}</li>
+</ul>
+
 <blockquote>
   {{ page.bioschemas.description }}
 </blockquote>
