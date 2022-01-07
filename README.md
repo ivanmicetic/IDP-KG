@@ -8,3 +8,11 @@ The starting point for this repository were the files developed during the ELIXI
 
 - The term 'source' is used to distinguish the page that was scraped
 - The term 'dataset' is used to identify the collection of data that a particular record page (e.g. disprot:DP000003) belongs to
+
+## Analysis Notebook
+
+The notebook for exploring the generated knowledge graph can be run on the cloud using the mybinder service[^1]; click on logo below to get going.
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AlasdairGray/IDP-KG/HEAD?labpath=notebooks%2FAnalysisQueries.ipynb)
+
+[^1]: See this [tutorial](https://github.com/alan-turing-institute/the-turing-way/blob/main/workshops/boost-research-reproducibility-binder/workshop-presentations/zero-to-binder-python.md) for an overview of what [MyBinder](https://mybinder.org/) is and offers.
