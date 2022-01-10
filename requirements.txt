@@ -1,2 +1,4 @@
 clipboard==0.0.4
 SPARQLWrapper==1.8.5
+matplotlib==3.5.1
+matplotlib-venn==0.11.6
