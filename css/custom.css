@@ -25,17 +25,21 @@ textarea{
 .table {
       width:100%;
       border-collapse: collapse;  
+      position: absolute;
     }
     .table tr:nth-child(even) {background-color: #f2f2f2;}
     .table tr:hover {background-color: #ccc;}
     .table th {
         color:white;
         background-color:#43BFC7;
-      position: sticky;
-      top: 0px;
+        position: -webkit-sticky; 
+        position: sticky;
+        top: 0px;
     }
+
 .full-width {
-      margin-left: calc(-30vw / 2 + 50% / 2);
-      margin-right: calc(-30vw / 2 + 50% / 2);
-      height:40vh;overflow-x: auto;overflow-y: auto;
+    height:40vh;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: auto;
 }
